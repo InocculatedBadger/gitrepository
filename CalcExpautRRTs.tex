@@ -120,9 +120,9 @@
 
 A \emph{random recursive tree} (RRT) is a labelled, rooted tree obtained by assigning a root vertex and adding $n-1$ vertices one by one such that each new vertex is joined by an edge to a randomly and uniformly chosen existing vertex. It is natural to consider RRTs as nested sequences of rooted, labelled trees
 \[T_{1} \subset T_{2} \subset \dots \subset T_{n}\]
-Where each $T_{t}$ has precisely $t$ vertices (and $(t-1)$ edges).  At time $t$ vertex $v$ is chosen uniformly at random from $V(T_{t-1})$ and a new vertex $v_{t}$ is attached to $T_{t-1}$ via the edge $\{(v,v_{t})\}$. Furthermore, we use the notation $\{T_i\}_{i=1}^{n}$ to mean a RRT on $n$ vertice and we denote the set of all RRTs on $n$ vertices by $\T$
+Each $T_{t}$ has precisely $t$ vertices (and $(t-1)$ edges).  In particular $T_1$ is the labelled rooted tree with one vertex and no edges.  The RRT process proceeds as follows: at time $t$ vertex $v$ is chosen uniformly at random from $V(T_{t-1})$ and a new vertex $v_{t}$ is attached to $T_{t-1}$ via the edge $\{(v,v_{t})\}$. We use the notation $\{T_i\}_{i=1}^{n}$ to mean a RRT on $n$ vertice and we denote the set of all RRTs on $n$ vertices by $\T_n$
 
-Let $T = (V(T),E(T))$ be a labelled tree (not necessarily a RRT) and $d(v,w)$ be the length of the (unique) shortest path between any pair of vertices $v,w \in V(T)$.  Every vertex $v \neq 1 $ has a well defined \emph{father}: the unique vertex $v'$ adjacent to $v$ such that $d(v',1)< d(v,1)$.   Let $\N_n = \{1,2,3,\dots,n\}$. 
+Let $T = (V(T),E(T))$ be a labelled tree (not necessarily a RRT) and $d(v,w)$ be the length of the (unique) shortest path between any pair of vertices $v\neq w \in V(T)$.  Every vertex $v \neq 1 $ has a well defined \emph{father}: the unique vertex $v'$ adjacent to $v$ such that $d(v',1)< d(v,1)$.   Let $\N_n = \{1,2,3,\dots,n\}$. 
 
 \begin{lem}
  Let $\mathcal{F}_n$ be the set of functions $f: \N_n \longrightarrow \N_n$ such that $f(1) = 1$ and $f(i) <i$ for $i = 2,3,\dots n$.  There is a bijection between $T_n$ and $\mathcal{F}_n$.
@@ -130,7 +130,7 @@ Let $T = (V(T),E(T))$ be a labelled tree (not necessarily a RRT) and $d(v,w)$ be
 
 \begin{proof}  Since any vertex $1 \neq v \in V(T)$ is adjacent to exactly one vertex with a lesser label if $T$ is a RRT, 
 one can associate a function $f \in \mathcal{F}$ to $T$ by assigning  $f(1) =1$ and $f(i)$ the father of $i$. 
-For the converse, take any $f \in {F}_n$ and build $\{T_{i}\}_{i=1}^{n}$ by setting $T_1$ to be the graph with one vertex and no edges and subsequent $T_i$ to be the graph built from $T_{i-1}$ by attaching vertex $i$ to $f(v)$ for $i = 2,3,\dots,n$.   
+For the converse, take any $f \in {F}_n$ and build $\{T_{i}\}_{i=1}^{n}$ by setting $T_1$ to be the graph with one vertex and no edges and subsequent $T_i$ to be the graph built from $T_{i-1}$ by attaching vertex $i$ to $f(v)$ for $i = 2,3,\dots,n$.  Tree $\{T_{i}\}_{i=1}^{n}$ is a RRT by induction on $n$.   
 \end{proof}
 
 \begin{corol}
@@ -142,10 +142,10 @@ $\lvert \T_n \rvert =  (n-1)!$
      1& 2&3 &4& \dots & n \\
      1 & f(2) &f(3) &f(4) &\dots & f(n)
     \end{array} \right)\]
-Subject to  $f(1) = 1$ and $f(i) <i$ for $i = 1,2,\dots n$. Note that $f$ has 1 \emph{choice}  for $f(2)$  (i.e. $f(2) = 1$), two choices for $f(3)$ and, more generally,  $i-1$ choices for $f(i-1)$. Therefore, $ \lvert \mathcal{F}_n \rvert = (n-1)!$ 
+Subject to  $f(1) = 1$ and $f(i) <i$ for $i = 1,2,\dots n$. Note that $f$ has 1 \emph{choice}  for $f(2)$  (i.e. $f(2) = 1$), two choices for $f(3)$ and, more generally,  $i-1$ choices for $f(i-1)$. Therefore $ \lvert \mathcal{F}_n \rvert = (n-1)!$ 
 \end{proof}
 
-Let $\tilde{\T}_n$ be the set of labelled rooted tree on $n$ vertices.  The symmetric group, $S_n$, can act on $\tilde{\T}_n$ by permuting the non-root vertices of any rooted, labelled tree.  Given a permutation $\sigma \in S_n$ and a tree $T \in \tilde{\T}_n$ we write the action of $\sigma$ on $T$ as $\sigma \cdot T$.  Figure \ref{fig:1} shows that this action does not restrict to RRTs.  This begs the question:  Given $T \in T_n$ and $\sigma \in S_n$ under what conditions is $\sigma  \cdot T \in T_n$?
+Let $\tilde{\T}_n$ be the set of labelled rooted tree on $n$ vertices and $S_n$ be the subgroup of the symmetric group on $n$ elements that fixes 1. Group $S_n$ acts on $\tilde{\T}_n$ by permuting the non-root vertices of any rooted, labelled tree.  Given a permutation $\sigma \in S_n$ and a tree $T \in \tilde{\T}_n$ we write the action of $\sigma$ on $T$ as $\sigma \cdot T$.  Figure \ref{fig:1} shows that this action does not restrict to RRTs.  This begs the question:  Given $T \in T_n$ and $\sigma \in S_n$ under what conditions is $\sigma  \cdot T \in T_n$?
 
 
 \begin{figure}[H]
@@ -206,17 +206,15 @@ Let $\tilde{\T}_n$ be the set of labelled rooted tree on $n$ vertices.  The symm
 \end{figure}
 
 
-\begin{lem}
-Let $T \in T_n$ correspond to $f \in \mathcal{F}_n$ then $\sigma \cdot T$ corresponds to the following  function:
+\begin{remk}
+Let $T \in \T_n$ correspond to $f \in \mathcal{F}_n$ then $\sigma \cdot T$ corresponds to the following  function:
 \[ f'= \left(\begin{array}{cccccc}
      1& \sigma(2)&\sigma(3) &\sigma(4)& \dots & \sigma(n) \\
      1 & \sigma(f(2)) &\sigma(f(3)) &\sigma(f(4)) &\dots & \sigma(f(n))
     \end{array} \right)
 \]
-\end{lem}
 
-\begin{proof}
- Let $T' = \sigma \cdot T$, there exists some function $g$ corresponding to $T'$ such that:
+Let $T' = \sigma \cdot T$, there exists some function $g$ corresponding to $T'$ such that:
  \[ g= \left(\begin{array}{cccccc}
      1& \sigma(2)&\sigma(3) &\sigma(4)& \dots & \sigma(n) \\
      1 & g(\sigma(2)) &g(\sigma(3)) &g(\sigma(4)) &\dots & g(\sigma(n))
@@ -224,7 +222,7 @@ Let $T \in T_n$ correspond to $f \in \mathcal{F}_n$ then $\sigma \cdot T$ corres
 \]
 
 Where $g(\sigma(i))$ is the father of $\sigma(i)$ but it is clear that the father of $\sigma(i)$ is $\sigma(f(i))$  hence $g(i) = \sigma(f(i))$ for $i = 2,3,\dots,n$.  
-\end{proof}
+\end{remk}
 
 \begin{corol}\label{cor:sig}
 Let $T \in \T_n$ and $ \sigma \in S_n$.  Then  $\sigma  \cdot T \in \T_n$ if and only if $\sigma(f(i)) < \sigma(i) $. 
@@ -233,7 +231,7 @@ Let $T \in \T_n$ and $ \sigma \in S_n$.  Then  $\sigma  \cdot T \in \T_n$ if and
 \begin{remk}\label{remk:a} If $i$ and $j$ are adjacent vertices in a RRT, $T$, and $T$ is acted upon by the transposition $(i,j)$ then
  $\sigma \cdot T \notin \T_n$.  Without loss of generality assume that $i <j $.  Since $i$ and $j$ are adjacent $f(j) = i$, hence:
 \[ \sigma(j) = i  < j = \sigma(i) =  \sigma(f(j))\]
-The result follows from corollary \ref{cor:sig}. 
+The result follows from Corollary \ref{cor:sig}. 
 \end{remk}
 
 We define an indicator function for any $\sigma \in S_n$  and $ T \in \T_n$ as follows:
@@ -244,12 +242,12 @@ We define an indicator function for any $\sigma \in S_n$  and $ T \in \T_n$ as f
   \end{array} \right.\]
 
 \subsection{Transpositions}
-In order to understand the effect of permutations of vertices on RRTs we shall examine $\sigma \cdot T$ where $\sigma = (p,q)$ is a transposition such that (without loss of generality) $p <q$.
+In order to understand the effect of a permutation of vertices of a RRT we shall examine $\sigma \cdot T$ where $\sigma = (p,q)$ is a transposition.
 
 By Corollary \ref{cor:sig} if $\sigma \cdot T \in T_n$ the corresponding function, $f$, satisfies $\sigma(f(i)) < \sigma(i)$ for $i = 2,3,\dots,n$.  
 
 \begin{lem}\label{lem:rrtperm}
-Given a RRT $T = \{T_{i}\}_{i=1}^{n}$ and a transposition $\sigma  = (p,q)$ the labelled tree $\sigma  \cdot T$ is a RRT if and only if $f(q)< p$ and $p$ is a leaf in $T_q$ .   
+Given a RRT $T = \{T_{i}\}_{i=1}^{n}$ and a transposition $\sigma  = (p,q)$ such that $p <q$, the labelled tree $\sigma  \cdot T$ is a RRT if and only if $f(q)< p$ and $p$ is a leaf in $T_q$ .   
 \end{lem}
 \begin{remk}\label{remk:split}
 The proof of  Lemma \ref{lem:rrtperm} relies on the fact that that any  $f \in \mathcal{F}_n$  can be split up into 5 parts as follows:
@@ -263,7 +261,7 @@ Notice that the first and fifth parts (with domain $i < p$ and $i > q$ respectiv
 
 \end{remk}
 \begin{proof}{[of Lemma \ref{lem:rrtperm}]}  
-Let $f$ correspond to a RRT.  We can partition the domain of $f$ into 5 sets as follows: 
+Let $f \in \F_n$ correspond to a RRT $T$.  We can partition the domain of $f$ into 5 sets as follows: 
 \begin{case}[$i<p$]
 Since $T$ is a RRT $f(i) < i < p$ therefore $\sigma(i) = i$ and $\sigma(f(i))$ = $f(i)$ so we trivially have $\sigma(f(i)) < \sigma(i)$.
 \end{case}
@@ -299,14 +297,15 @@ Therefore $\sigma \cdot T \in \T_n$ if and only if $f(q) < p $ \emph{and} $f(i) 
 %write something here.
 
 \begin{lem}\label{lem:pn}
- For a fixed $ \sigma \in S_n$, we write $P_n(\sigma) = \sum_{T \in T_n}I(\sigma,T)$.  Then $P_n(p,q) = \frac{(p-1)^{2}}{(q-1)(q-2)}$ 
+ Fix $ \sigma \in S_n$ and write $P_n(\sigma) = \sum_{T \in T_n}I(\sigma,T)$.  For any transposition $\sigma = (p,q)$ such that $p< q$:
+ \[P_n(\sigma) = \frac{(p-1)^{2}}{(q-1)(q-2)}\] 
 \end{lem}
 \begin{proof}
-Note that $P_n(p,q)$  is the number of trees $T \in \T_n$ such that $(p,q) \cdot T \in \T_n$. By Lemma \ref{lem:rrtperm},  $\sigma  = (p,q) \cdot T \in T_n$ if and only if $p$ is a leaf in $T_q$ and $f(q)< p$.  Therefore,  $P_n(p,q)$ is the number of trees $T \in \T_n$ such that $p$ is a leaf in $T_q$ and $f(q)< p$.  
+Let $\sigma$ be as in the statement of Lemma \ref{lem:pn}. Note that $P_n(\sigma)$  is the number of trees $T \in \T_n$ such that $(p,q) \cdot T \in \T_n$. By Lemma \ref{lem:rrtperm},  $\sigma   \cdot T \in T_n$ if and only if $p$ is a leaf in $T_q$ and $f(q)< p$.  Therefore,  $P_n(\sigma)$ is the number of trees $T \in \T_n$ such that $p$ is a leaf in $T_q$ and $f(q)< p$.  
 
-For every $T \in \T_n$ the associated function $f$ can be split up into 5 parts as described in Remark \ref{remk:split}, in particular the following matrix shows the number of possible values of $f(i)$ such that $\sigma \cdot T \in \T_n$ given each $i$:
+For every $T \in \T_n$ the associated function $f$ can be split up into 5 parts as described in Remark \ref{remk:split}. In particular the following matrix shows the number of possible values of $f(i)$ such that $\sigma \cdot T \in \T_n$:
 
- \[ f = \left(\begin{array}{cccc|c|ccc|c|ccc}
+ \[\left(\begin{array}{cccc|c|ccc|c|ccc}
      1  & 2  & 3 & \dots & p   & p+1 & \dots & q-1 & q    & q+1    & \dots & n \\
      1  & 1  & 2 & \dots & p-1 & p-1 & \dots & q-2 & p-1  & q      & \dots & n-1
     \end{array} \right)
@@ -321,13 +320,13 @@ Therefore,
 
 
 \section{$n$-cycles}
-In this section we will generalise  Lemma \ref{lem:rrtperm} to permutations $\sigma = (p_1,p_2,\dots,p_m)$ such that $p_1 < p_2 < \dots < p_m $.  
+In this section we will generalise  Lemma \ref{lem:rrtperm} to permutations $\sigma = (p_1,p_2,\dots,p_m)$ such that $p_1 < p_2 < \dots < p_m $.  The proof of Lemma \ref{lem:mcycles} follows closely the proof of Lemma \ref{lem:rrtperm}.
 \begin{lem}\label{lem:mcycles}
-Given a RRT $\{T = T_{i}\}_{i=1}^{n}$ and a transposition $\sigma  = (p_1,p_2,\dots,p_m)$ the labelled tree $\sigma  \cdot T$ is a RRT if and only if  $p_l$ is a leaf in $T_{p_{l+1}}$ for $l = 1,2,\dots,n-1$ and $f(p_m) < p_1$.     
+Given a RRT $T = \{T_{i}\}_{i=1}^{n}$ and a transposition $\sigma  = (p_1,p_2,\dots,p_m)$ the labelled tree $\sigma  \cdot T$ is a RRT if and only if  $f(p_m) < p_1$ \emph{and} wither $p_l$ is a leaf in $T_{l+1}$ \emph{or} $f(p_{l+1}) = f(p_l)$ for $l = 1,2,\dots m-1$.   
 \end{lem}
 
 \begin{proof}
-The proof of Lemma \ref{lem:mcycles} follows closely the proof of Lemma \ref{lem:rrtperm}.  Let $T \in \T_n$ and $f \in \mathcal{F}_n$ be the corresponding function.  Using the same argument from the proof of Lemma \ref{lem:rrtperm} we can see immediately that there are no conditions on $f(i)$ for $i < p_1$ and $i > p_m$ for $\sigma \cdot T \in T_n$.  Similarly we can immediately see that there is no condition on $f(p_1)$ order for $\sigma \cdot T \in T_n$.
+Let $T \in \T_n$ be a RRT and $f \in \mathcal{F}_n$ be the corresponding function.  Using the same argument from the proof of Lemma \ref{lem:rrtperm} we can see immediately that there are no conditions on $f(i)$ for $i < p_1$ and $i > p_m$ for $\sigma \cdot T \in T_n$.  Similarly we can immediately see that there is no condition on $f(p_1)$ order for $\sigma \cdot T \in T_n$.
 
 For all $p_l < i < p_{l+1}$ such that $l = 1,2,\dots, n-1$, if $f(i) = p_l$ then $\sigma(i) = i$ and $\sigma(f(i)) = p_{l+1}$.  This means that:
 \[\sigma(i) = i < p_{l+1}  = \sigma{f(i)},\]
