@@ -44,11 +44,11 @@
 % These packages are all incorporated in the memoir class to one degree or another...
 
 %%% HEADERS & FOOTERS
-\usepackage{fancyhdr} % This should be set AFTER setting up the page geometry
-\pagestyle{fancy} % options: empty , plain , fancy
-\renewcommand{\headrulewidth}{0pt} % customise the layout...
-\lhead{}\chead{}\rhead{}
-\lfoot{}\cfoot{\thepage}\rfoot{}
+%\usepackage{fancyhdr} % This should be set AFTER setting up the page geometry
+%\pagestyle{fancy} % options: empty , plain , fancy
+%\renewcommand{\headrulewidth}{0pt} % customise the layout...
+%\lhead{}\chead{}\rhead{}
+%\lfoot{}\cfoot{\thepage}\rfoot{}
 
 %%% SECTION TITLE APPEARANCE
 %\usepackage{sectsty}
@@ -326,22 +326,26 @@ Given a RRT $T = \{T_{i}\}_{i=1}^{n}$ and a transposition $\sigma  = (p_1,p_2,\d
 \end{lem}
 
 \begin{proof}
-Let $T \in \T_n$ be a RRT and $f \in \mathcal{F}_n$ be the corresponding function.  Using the same argument from the proof of Lemma \ref{lem:rrtperm} we can see immediately that there are no conditions on $f(i)$ for $i < p_1$ and $i > p_m$ for $\sigma \cdot T \in T_n$.  Similarly we can immediately see that there is no condition on $f(p_1)$ order for $\sigma \cdot T \in T_n$.
+Let $T \in \T_n$ be a RRT and $f \in \mathcal{F}_n$ be the corresponding function. Following the argument from the proof of Lemma \ref{lem:rrtperm} we can see immediately that there are no conditions on $f(i)$ for $i \leq p_1$ and $i > p_m$ for $\sigma \cdot T \in T_n$. 
 
-For all $p_l < i < p_{l+1}$ such that $l = 1,2,\dots, n-1$, if $f(i) = p_l$ then $\sigma(i) = i$ and $\sigma(f(i)) = p_{l+1}$.  This means that:
+For $p_l < i < p_{l+1}$, if $f(i) = p_l$ then $\sigma(i) = i$ and $\sigma(f(i)) = p_{l+1}$ for $l = 1,2,\dots, m-1$.  This means that:
 \[\sigma(i) = i < p_{l+1}  = \sigma{f(i)},\]
-so $\sigma \cdot T$ is \emph{not} a RRT.  %We can rephrase this as follows: $p_l$ is \emph{not} either a leaf in $T_{p_{l+1}}$ or there exists the edge $(p_lp_{l+1})$ then $\sigma \cdot T$ is not a RRT for $l = 1,2,\dots, n-1$.
+which is the case if and only if $\sigma \cdot T$ is \emph{not} a RRT. For another value of $f(i)$ either $i \notin \sigma$ in which case $\sigma(f(i)) =  f(i) < i = \sigma(i)$ \emph{or} $i = p_k$ for some $1 \leq k <l$ so $\sigma(f(i)) = p_{k+1} \leq p_l < i = \sigma(i)$.   
 
-We now need only consider $i = p_l$ for $l = 2,3,\dots,m$.  If $\sigma \cdot T \in T_n$ then $\sigma(f(i)) < \sigma(i)$. Therefore, $\sigma \cdot T \in T_n$ if $\sigma(f(i)) < p_{l+1}  = \sigma{f(i)}$ for  $l = 1,2,\dots, n-1$, this is clearly always satisfied.
+We now need only consider $i = p_l$ for $l = 2,3,\dots,m$. By Corollary \ref{cor:sig} $\sigma \cdot T \in T_n$ if and only if $\sigma(f(i)) < p_{l+1}  = \sigma{f(i)}$ for  $l = 1,2,\dots, n-1$, this is clearly always satisfied.  Bo Corrolary \ref{cor:sig} $\sigma \cdot T \in T_n$ if and only if
+\[ \sigma(f(i)) < \sigma(i) = p_{l+1}.\]
+Since $f(i) < p_l$ this condition is trivially satisfied. 
 
-Finally we consider $p_m$.  Note that if $\sigma \cdot T \in \T_n$ then $\sigma f(p_{m}) < \sigma(p_m) = p_1$. 
 
-We conclude that $\sigma \cdot T \in T_n$ if and only if $p_l$ is \emph{not} either a leaf in $T_{p_{l+1}}$ or there exists the edge $(p_lp_{l+1})$ then $\sigma \cdot T$ is not a RRT for $l = 1,2,\dots, n-1$ and $f(p_m) < p_1$.
+Finally, consider $p_m$.  Note that if $\sigma \cdot T \in \T_n$ if and only if 
+\[\sigma(f(p_m)) < \sigma(p_m) = p_1\]
+In conclusion, $\sigma \cdot T \in \T_n$ if and only if $f(p_m) < p_1$.  
+
 \end{proof}
 \begin{corol}
   Let $\sigma \in S_n$ have the form $\sigma = (p_1,p_2,p_3,\dots p_m)$ such that $p_1 < p_2 < \dots < p_m$.  
   
-  \[P_n(\sigma) = (n-1)!\frac{(p_1-1)^{2}(p_2 -1)(p_3-1)\dots(p_m -1)}{(p_2 - 2)(p_3 - 2)\dots(p_m-2)(p_m-1)}.\] 
+  \[P_n(\sigma) = \frac{(p_1-1)^{2}(p_2 -1)(p_3-1)\dots(p_m -1)}{(p_2 - 2)(p_3 - 2)\dots(p_m-2)(p_m-1)} (n-1)!.\] 
 
   \end{corol}
 \begin{proof}
@@ -349,7 +353,7 @@ We conclude that $\sigma \cdot T \in T_n$ if and only if $p_l$ is \emph{not} eit
 
 We therefore know the number of possible values that $f(i)$ can take for each $i$. The following matrix shows the number of possible values of $f(i)$ for $p_1 < i < p_m$. 
 
- \[ f = \left(\begin{array}{ccccccccccc}
+ \[\left(\begin{array}{ccccccccccc}
      \dots & p_1      & p_1 +1   & \dots & p_2 - 1 & p_2   & p_2 + 1 & \dots & p_m - 1 & p_m & \dots \\
      \dots & p_1 - 1  & p_1 - 1  & \dots & p_2 - 3 & p_2-1 & p_2-1   & \dots & p_m-3   & p_1-1 & \dots  
     \end{array} \right)
@@ -359,7 +363,7 @@ We therefore know the number of possible values that $f(i)$ can take for each $i
 \begin{remk}
 Let $T \in T_n$ and a permutation $ \sigma  = (p_1,p_2,\dots,p_m)$ such that $p_1 < p_2 < \dots p_m$ and denote transpositions $\sigma_l = (p_1,p_l)$ for $l = 1,2,\dots,m$.
 %Do those transpositions generate \sigma ?
-It is interesting to note that given a random recursive tree $T$ such that $\sigma \cdot T \in \T_n$ it is \emph{not} necessarily the case that $\sigma_l \cdot T \in T_n$.  If we let $T$ be the RRT given in Figure  \ref{fig:int} it is clear that $(234) \cdot T \in \T_4$ but $(23) \cdot T, (24) \cdot T \notin \T_4 $.   
+It is interesting to note that given a random recursive tree $T$ such that $\sigma \cdot T \in \T_n$ it is \emph{not} necessarily the case that $\sigma_l \cdot T \in T_n$.  If we let $T$ be the RRT given in Figure  \ref{fig:int} it is clear that $(234) \cdot T \in \T_4$ but $(23) \cdot T \notin \T_4 $.   
  
  \begin{figure}[h]
  \centering
@@ -394,11 +398,13 @@ It is interesting to note that given a random recursive tree $T$ such that $\sig
 \end{tikzpicture}
  \caption{}\label{fig:int}
  \end{figure}
- On the other hand we can make the following corollary.  
 \end{remk}
+ 
+ We can make the following corollary.  
+
 
 \begin{corol}\label{cor:subsig}
- Let $T \in T_n$ and a permutation $ \sigma  = (p_1,p_2,\dots,p_m)$ such that $p_1 < p_2 < \dots p_m$ and $\sigma \cdot T \in \T_n$.  Let $\sigma' = (p_l,p_l+1,\dots,p_m)$, then $\sigma' \cdot T \in \T_n$ for $l = 1,2,\dots m-1$.
+ Let $T \in T_n$ and a permutation $ \sigma  = (p_1,p_2,\dots,p_m)$ such that $p_1 < p_2 < \dots <  p_m$ and $\sigma \cdot T \in \T_n$.  Let $\sigma' = (p_l,p_l+1,\dots,p_m)$, then $\sigma' \cdot T \in \T_n$ for $l = 1,2,\dots m-1$.
 \end{corol}
 
 \begin{remk}
