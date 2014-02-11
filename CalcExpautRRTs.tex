@@ -114,6 +114,9 @@
 \begin{document}
 \maketitle
 
+\section{Labeled Trees}
+
+The set, $\tilde{\T}_n$, of rooted, labeled trees on $n$ vertices can be acted on by the subgroup, $S_n$ of the symmetric group that preserves 1 by permuting vertices.  The orbits of this action are the unlabeled rooted trees on $n$ vertices.     
 
 \section{Random recursive trees}
 
@@ -404,14 +407,17 @@ It is interesting to note that given a random recursive tree $T$ such that $\sig
 
 
 \begin{corol}\label{cor:subsig}
- Let $T \in T_n$ and a permutation $ \sigma  = (p_1,p_2,\dots,p_m)$ such that $p_1 < p_2 < \dots <  p_m$ and $\sigma \cdot T \in \T_n$.  Let $\sigma' = (p_l,p_l+1,\dots,p_m)$, then $\sigma' \cdot T \in \T_n$ for $l = 1,2,\dots m-1$.
+ Let $T \in T_n$ and a permutation $ \sigma  = (p_1,p_2,\dots,p_m)$ such that $p_1 < p_2 < \dots <  p_m$ and $\sigma \cdot T \in \T_n$.  Let $\sigma^{(l)} = (p_l,p_l+1,\dots,p_m)$, then $\sigma' \cdot T \in \T_n$ for $l = 1,2,\dots m-1$.
 \end{corol}
+\begin{proof}
+ Assume that $T$ and $\sigma$ are as in the statement of this corollary and consider $\sigma^{l} \cdot T$.  By Lemma \ref{lem:mcycles} $f(p_m) < p_1 < p_l$ and either $(p_i)$ is a leaf in $T_{i+1}$ for $i = l,l+1,\dots,m$.       
+\end{proof}
 
 \begin{remk}
- The converse of Corollary \ref{cor:subsig} is not true; take Figure \ref{fig:int} for example.
+ The converse of Corollary \ref{cor:subsig} is not true.  %add example.   %take Figure \ref{fig:int} for example.
 \end{remk}
 
- \section{Enumeration of legal moves part 2}
+\section{Enumeration of legal moves part 2}
 In this section we will calculate $Q_n = \sum_{\sigma \in S_n}\sum_{T \in \T_n}$ for certain specific cases of $\sigma$ beginning with transpositions.  We can write out all transpositions $(p,q) \in S_n$ in a grid form as follows:
  \[ \begin{array}{c|c|c|c|c}
      (2,3)  & (2,4)  & (2,5) & \dots & (2,n) \\
