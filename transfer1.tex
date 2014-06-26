@@ -110,14 +110,13 @@
 %opening
  \title{18 Month Report}
 \author{David Matthews}
-
 \begin{document}
-
+\tableofcontents
+\chapter*{\centering Abstract}\label{sec:intro}
+\addcontentsline{toc}{chapter}{Abstract}
 \begin{quotation}
  ``Perhaps an Erdos quote linking probability and graph theory'' 
 \end{quotation}
-   
-\section{Abstract}\label{sec:intro}
 A \emph{random recursive tree} is a finite nested family of labelled trees, $\{T_t\}_{t=1}^{n}$ built by iteratively attaching
 a new vertex to one of the existing vertices uniformly at random. At step $t$ in this iteration let
 $a_t = \lvert \Aut(T_t) \rvert$ where $\Aut(T_t)$ is the group of automorphisms of tree $T_t$.  MacArthur, (\cite{Bens}, Personal Communication), performed numerical calculations which suggest that in the limit $t \rightarrow \infty$
@@ -137,7 +136,7 @@ In the limit $t \rightarrow \infty, a_t^\frac{1}{t} \rightarrow \mathcal{V} $ wh
 The primary goal of this project is to prove Conjecture \ref{conj:1}.
    
 \chapter{Introduction}\label{sec:background}
-\subsection{Attachment Trees}\label{sec:att}
+\section{Attachment trees}\label{sec:att}
 The set of vertices and the set of edges of some tree $T$ are denoted $V(T)$ and $E(T)$ respectively.  
 A \emph{random attachment tree}, $T = \{T_t\}_{t=1}^n$ on $n$ vertices is a nested sequence of  labelled, rooted trees:
 \[T_{1} \subset T_{2} \subset \dots \subset T_{n}.\]
@@ -180,7 +179,7 @@ process the father of a vertex is unique hence well-defined.
 
 For example, consider the attachment tree $T$ in Figure \ref{fig1}, the distance $d(1,10) = 2$ and the father of vertex 13 is vertex 8.
 
-\subsection{The automorphism group of labelled trees}\label{sec:yo}
+\section{The automorphism group of labelled trees}\label{sec:yo}
 %Definition - labelled tree?????
 Two labelled trees $T_{1}$ and $T_2$ are considered the same and called isomorphic if and only if there is a 1-1 map $\alpha: V(T_1) \rightarrow V(T_2)$ which preserves adjacency and the labelling.  If $T_1 = T_2$ then $\alpha$ is called an automorphism.  The collection of all automorphisms of tree $T$ is  denoted $\Aut(T)$ and constitutes a group.
 
@@ -232,7 +231,7 @@ The expected order of automorphism group of a labelled tree on $n$ vertices is:
 \end{align}
 
 
-\subsection{Automorphisms of Random Recursive Trees}\label{sec:aorrt}
+\section{Automorphisms of random recursive trees}\label{sec:aorrt}
  It is a result of P\'{o}lya that the automorphism group of a tree belongs to the class of permutation groups which contains the symmetric groups and is closed under taking direct and wreath products \cite{biggs:1993}. Therefore there exists a direct product decomposition for any tree $T$:
  \begin{equation}\label{decomp}
   \Aut(T) \cong A_{1} \times A_{2} \times\dots\times A_{p} \times B_{1} \times B_{2} \times \dots \times B_{q}
@@ -288,10 +287,29 @@ This begs the question: does the order of either the elementary or the complex s
  \end{con}
 If conjecture \ref{conj:2} were true then to prove conjecture \ref{conj:1} it is enough to calculate the limiting behaviour of $(n,k)$-stars.  
 
+In Chater \ref{sec:Prufer} we refine a bijection of Pr\"{u}fer between labelled trees on $n$ vertices and sequences called Pr\"{u}fer
+ sequences by restricting this bijection to random recursive trees.  As a result there is an obvious way to give the set $\T_n$ 
+ additional structure by thinking it as a topological and then a measure space.
+ 
+In Chapter \ref{chap:Joyal} we exploit another bijection, this time between $\T_n$ and a certain class of integer valued 
+functions.  We define what it is to be an automorphism of these functions and use a varaiant of equation \ref{} to calculate the 
+expected number of $k$-stars in a random recursive tree on $n$ vertices.
+
+In Chapter \ref{chap:perms} we construct several further bijections between $\T_n$ and a class of binary trees, and a set of 
+recursively defined permutations via a combinatorial setup known as a Chinese Restraunt Process.  We show that many of the results 
+from the theory of random permutations can be fruitfully applied to RRTs.  For example, we calculate the expected number of leaves in
+a RRT on $n$ vertices. We conclude Chapter \ref{chap:perms} by suggesting a possible future path in order to calculate the
+expected number of $(k)$-stars in a RRT. 
+
+Finally, in Chapter \ref{chap:polya} we build a statistical device called a Polya Urn scheme to output the features of a typical 
+RRT such as the degree distribution, the number of $(n,k)$-stars and the number of extended symmetric branches.  We then give limits
+ for the order of limiting order of the elementary subgroup $\lvert \mathcal{E}(T) \rvert$.  We end Chapter \ref{chap:polya}  by 
+ proving that conjecture \ref{conj:2} is false. 
+
 %Definition of un/rooted, un/labelled trees
 \chapter{A Measure on Random Recursive Trees}
 
-\subsection{Pr\"{ufer} Sequences}\label{sec:Prufer}
+\section{Pr\"{ufer} sequences}\label{sec:Prufer}
 
 Cayley was first to prove that there are $n^{n-2}$ labelled trees on $n$ vertices \cite{Cayley}. A later proof due 
 to Pr\"{u}fer uses a correspondence between particular sequences called \emph{Pr\"{u}fer sequences} and labelled trees 
@@ -340,7 +358,7 @@ If $T\in \T_n$ then $a[1]$ is the father of vertex $n$, entry $a[2]$ is the fath
 \end{cor}
 Note that $a[i]$ corresponds to the father of node $n-i$ in $T_n$ and as therefore $L$ is the set of leaves of $T_n$.  
 
-\subsection{The Space of Random Recursive Trees}
+\section{The space of random recursive trees}
 By Section \ref{sec:Prufer} every RRT can be associated with a unique nested set of Pr\"{u}fer sequences:
 \[P_{n-1} \supset P_{n-2} \supset \dots \supset P_3\]
 where each $P_3 = (a[1])$ with $a[1] \in \N_2$ and subsequent $P_i$ are built from $P_{i-1}$ by the addition of $a[i-2] \in \N_{i}$.  In fact $a[i]$ is the father of vertex $i+2$ for $i = 1,2,\dots, n-2$.  The set, $\T_n$, of all RRTs on $n$ vertices can be considered as the set $\Pruf_n$ of all nested  of Pr\"{u}fer sequences of length $n$.  We can make $\Pruf_n$ a topological product space,
@@ -369,7 +387,7 @@ where each $\N_i$ is equipt with the discrete topology.  We can further define a
 
 For each $i \in \N_\alpha$ we have coordinate projection maps $\pi_{i} : \Pruf_n \rightarrow \N_i$ defined by $\pi_1(P_n):= 1$ and $\pi_i(P_n):= a[i]$ for $i = 2,3\dots,n-1$.  Therefore a RRT can be interpreted as a sequence of random variables taking values in $\N_{\alpha}$ for $\alpha  = 1,2,\dots n-1$.  The measure $P_{\N_n}$ is a uniform probability measure on $\T_n$.   
 
-\chapter{Random Recursive Trees as Functions}
+\chapter{Random Recursive Trees as Functions}\label{chap:Joyal}
 Let $\mathcal{F}_n$ be the set of functions $f: \N_n \longrightarrow \N_n$ such that $f(1) = 1$ and $f(i) <i$ for $i = 2,3,\dots n$.
 
 \begin{lem}
@@ -395,7 +413,7 @@ Given any function $f \in \F_n$ by definition $f(i) \in \N_{i-1}$ for $i= 2,3,\d
 %Section on Joyal - action on joyal via a permutation.
 
 
-\subsection{Expected automorphism group of a random recursive trees}
+\section{Expected automorphism group of a random recursive trees}
 In Section \ref{sec:yo} we noted that the expected order of automorphism group of a labelled tree on could be calculated via
 the action of $S_n$ on $\lT$ and applying Burnside's Lemma.  This begs the question: is it possible to build a similar argument for the space of RRTs? 
 
@@ -595,12 +613,40 @@ In order to find a general form for $X_n(m)$ we will split it up into constituen
 \begin{equation}\label{eqn:xdash}
  X'_n(m) = \sum_{i=1}^{n-m} i \sum_{j=1}^{n-i-m+1}T^{(m)}
 \end{equation}
-To calculate $X'_n(m)$ we must make some preliminary definitions regarding binomial coefficients.
-The number of ways (disregarding order) that $k$ objects can be chosen from among $n$ objects is written
+\begin{figure}
+
+\subsection{Pascal's triangle: an aside}
+
+\begin{tabular}{rccccccccc}
+$n=0$:&    &    &    &    &  1\\\noalign{\smallskip\smallskip}
+$n=1$:&    &    &    &  1 &    &  1\\\noalign{\smallskip\smallskip}
+$n=2$:&    &    &  1 &    &  2 &    &  1\\\noalign{\smallskip\smallskip}
+$n=3$:&    &  1 &    &  3 &    &  3 &    &  1\\\noalign{\smallskip\smallskip}
+$n=4$:&  1 &    &  4 &    &  6 &    &  4 &    &  1\\\noalign{\smallskip\smallskip}
+\end{tabular}
+\caption{Pascal's Triangle}\label{fig:pt}
+\end{figure}
+To calculate $X'_n(m)$ we must make some preliminary definitions regarding binomial coefficients and, although the suject is 
+extremely elementary, it is appropriate to discuss Pascal's triangle because it draws together many themes of this chapter.  
+Pascal's triangle, is an array of binomial coefficients such that the rows are enumerated from $n=0$ at the top and the columns 
+are enumerated from left to right beginning with $k=0$.  Row $n$ has $n+1$ columns and the entry in the $n^{th}$ row and $k^{th}$
+column is:
+
 \[
- {n \choose k} = \frac{n!}{(n-k)!k!}
+ {n \choose k} = \frac{n!}{(n-k)!k!}.
 \]
-There is a deep connection between generalise triangular numbers and binomial coefficients \cite{}. For example $\sum_{i=1}^{n}T_i^{(m)} = {n + (m-2)\choose(m-1)}$, furthermore we can rewrite equation \ref{eqn:xdash} as:
+The first 5 rows of Pascal's triangle are shown in figure \ref{fig:pt}.  Note that ${n chose k}$ is also the number of ways
+(disregarding order) that $k$ objects can be chosen from among $n$ objects.  There is a deep connection between generalised
+triangular numbers and binomial coefficients \cite{}. For example, reading diagonally downwards in either direction of Pascl's 
+triangle are the sets $T^{(2)}, T^{(3)},T^{(4)}\dots$ and note that:
+\begin{equation}\label{eq:cho}
+ \sum_{i=1}^{n}T_i^{(m)} = {n + (m-2)\choose(m-1)}
+\end{equation}
+Finally, for the readers amusement, recall that summing the upward diagonals gives the Fibonacci sequence.
+
+\section{Expected automorphism group of a random recursive tree continued}
+
+By Equation \ref{eq:cho} we can rewrite equation \ref{eqn:xdash} as:
 \[ X'_n(m) = \sum_{i=1}^{n-m} i  {n-1-i\choose m-1} \]
 
 
@@ -642,7 +688,7 @@ On the other hand if $m = 1,2,3,\dots, n-1$ we use the inductive hypothesis and 
 
 
 
-\subsubsection{The expected number of $k$-stars}
+\subsection{The expected number of $k$-stars}
 Recall that $A_n(k)$ be the expected number of $k$-stars in a RRT on $n$ vertices. In this section we will calculate $A_n(m)$  in terms of $X_n(m)$.  By Remark \ref{remk:1} given a permutation $\sigma  = (p_1,p_2,\dots p_m) \in H_n(m)$ and a tree $T \in \T_n$ the permutation $\sigma \in \Aut(T)$ if and only if vertices $p_1,p_2,\dots,p_m$ are leaves \emph {and} $f(p_1) = f(p_2) = \dots = f(p_m)$.  Equivalently,  $\sigma \in \Aut(T)$ if and only if $T$ has an induced subtree isomorphic to an $m'$-star for some $m'>m$ with $p_1,p_2,\dots,p_m$ leaves.  Since $T$ cannot contain an $m'$ star for $m' \geq n$ we must have:
 \[
  A_n(n-1) = X_n(n-1)
@@ -672,9 +718,9 @@ Use induction on $k$.  We have already seen the case $k = 1$ so assume the follo
 
 
 
-\chapter{Random Recursive Trees and Permutations}
+\chapter{Random Recursive Trees and Permutations}\label{chap:perms}
 
-\subsection{Permutations}
+\section{Permutations}
 
 A permutation, $\sigma$, of size $n$ is a bijective mapping of the set  $\N_n$ and can be represented by an array:
 \[
@@ -699,7 +745,7 @@ For example, consider the permutation
 \]
 We write permutation $\sigma = 2314$ in one-line notation and $\sigma  = (2,3,1)(4)$ in canonical cycle notation.
 
-\subsection{Random Permutations, Chinese Restaurants and RRTs}
+\section{Random permutations and Chinese restaurants}
 Consider a sequence of permutations, $\{\sigma_m\}_{m=1}^n$ such that:
 \begin{itemize}
  \item[(i)] Each permutation $\sigma_m$ is a uniformly distributed permutation of $\N_m$ for $m = 1,2,\dots,n$.
@@ -739,7 +785,7 @@ We call these sequences \emph{consistent random permutations}.  The set of all c
  We have seen how to associate a consistent random permutation with a RRT.  Note that given any consistent permutation we can construct  a unique RRT via Remark \ref{remk:1}.    
 \end{proof}
 
-\subsection{Random Permutation Facts}
+\section{Random permutation facts}
 In this section we state some prominent theorems from the theory of random permutations and translate these into results 
 about RRTs.  
 
@@ -850,7 +896,7 @@ The mean number of ascending runs of length \emph{exactly} $l-1$ in a random per
 
 
 
-\subsection{Applications to RRTs}\label{sec:Applications}
+\section{Applications to random recursive trees}\label{sec:Applications}
 We have seen that any RRT $\{T_t\}_{t=1}^{n}$ contains a Chinese Restaurant Process.  It is clear from this construction that
 the number of occupied tables in the Chinese Restaurant Process at time $t$ is the degree of vertex $v_0 \in V(T_{t+1})$.  We 
 also discussed a further bijection between Chinese Restaurant Processes with $n$ guests and consistent random permutations 
@@ -862,7 +908,7 @@ consists of $m$ occupied tables with $l_1,l_2,\dots,l_m$ guests each. Furthermor
  \]  
 Similarly, by Theorem \ref{thm:stirling}, the number of Permutations of RRTs of order $n+1$ with $\deg(v_0) = k $ equals the unsigned Stirling number of the first kind $s(n,k)$.
 
-\subsection{Theory of Permutations}
+\section{Theory of permutations}
 In Section \ref{sec:Applications} we successfully translated Theorem \ref{thm:perms} and Theorem \ref{thm:stirling} into
 results about RRTs. In order to do the same with Lemma \ref{lem:ascents} and Lemma \ref{lem:ascendingruns} we require a brief detour
 into the theory of permutations.  
@@ -893,7 +939,7 @@ For example if $\sigma = 253416$ then $1,2,3,4$ and 6 are weak excedances.
 
 
 
-\subsection{Further Applications}
+\section{Further applications}
 
 \begin{lem}
  Let $\sigma$ be the permutation corresponding to some RRT $T_n$. The number of weak excedances in $\sigma$ is equal 
@@ -919,7 +965,7 @@ Assume that vertex $v_{i} \in V(T_{n+1})$ is a leaf.  Then at time $i$ for some 
 \end{proof}
 
  
-\chapter{A P\'{o}lya Urn}
+\chapter{A P\'{o}lya Urn}\label{chap:polya}
 A generalised P\'{o}lya urn $\mathcal{U}$ contains a finite number of balls of finitely many possible types $1,2,\dots,q$. The content of the urn at time $t$
 is described by a vector $X_{t} = (X_{t,1},X_{t,2},\dots X_{t,q})$ where each $X_{t,i}$ is the number of balls of type $i$ in the urn at time $t$.  We associate an
 \emph{activity} $a_{i}$ and a transition vector $\xi_{i} = (\xi_{i,1},\xi_{i,2},\dots,\xi_{i,q})$ to each type.  A generalised P\'{o}lya urn is an evolving process with initial
@@ -939,7 +985,7 @@ Assume that a ball of type $i$ is chosen from an urn, Equation \ref{eq:cond1} en
  If $a_i = 1$ for every type $i$ then at each time a ball is drawn from the urn it has a uniformly random type.   
 \end{remk}
 
-\subsection{Properties of P\'{o}lya urns}
+\section{Properties of P\'{o}lya urns}
 The crux of this section is Theorem \ref{thm:3.21} which is a limit theorem for P\'{o}lya urns.  In order to state this theorem we require some further concepts from urn theory.
 
 To every P\'{o}lya urn we can associate a matrix $A$ such that the $j^{th}$ column of $A$ is defined to be $a_j \mathbb{E}(\xi_{j})$ where $\mathbb{E}$ denotes expectation.
@@ -999,7 +1045,7 @@ At time $n+1$ vertex $v_{n+1}$ is attached to $i$ is attached via an edge to a v
 
 %To prove Lemma \ref{lem:B1} we must first state a particularly beautiful theorem from linear algebra: the Gershgorin circle theorem.
 
-\section{Further Background}
+\section{Further background}
 
 In order to prove Theorem \ref{thm:A1} we require further background from linear algebra such as the Gershgorin Circle Theorem (Theorem \ref{thm:gct}) and a short introduction to Perron-Frobenius theory.
 
