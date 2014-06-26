@@ -127,7 +127,7 @@ A random Fibonacci sequence is a simple variation of the usual Fibonaci sequence
 \[F(n) = F(n-1) \pm F(n-2), \]
 where the addition and negation are chosen equiprobably.  Viswanath \cite{Viswanath} showed that almost surely 
 $|f(t)|^{\frac{1}{t}} \rightarrow 1.13198824 $ (a number that has subsequently become known as Viswanath's constant) as 
-$t\rightarrow\infty$ although his proof was computational in nature.   Macarthur made the following conjecture.
+$t\rightarrow\infty$ although his proof was computational in nature \footnote{More recently Viswanath's constant was calculated to another 5 decimal places \cite{oli}}.   Macarthur made the following conjecture.
 
 \begin{con}\label{conj:1}
 In the limit $t \rightarrow \infty, a_t^\frac{1}{t} \rightarrow \mathcal{V} $ where $\mathcal{V}$ is Viswinath's constant.  
@@ -146,7 +146,7 @@ $V(T_{t-1})$ according to some attachment model and a new vertex labelled $t$ is
 Note that each $T_i$ is indeed a tree since it has $i$ vertices and $i-1$ edges and each $T_i$ is obviously connected. 
 
 If the attachment model is uniform random attachment then we say that $\{T_t\}_{t=1}^{n}$ is a \emph{ 
-random recursive tree} on $n$ vertices. For succinctness we will henceforth refer to a random recursive trees as a RRT.  
+random recursive tree} on $n$ vertices. For succinctness we will henceforth refer to a random recursive trees as a RRT.  A random recursive $d$-ary tree is an attachment tree withe following attachment model.  The probability of a new vertex is uniformly distributed amongst the vertices with degree less than $d$ hence the proabbility of attaching to an existing vertex with degree $d$ is 0.   
 \begin{figure}[ht]
 \centering
 \begin{tikzpicture}
@@ -238,7 +238,7 @@ The expected order of automorphism group of a labelled tree on $n$ vertices is:
  \end{equation}
 Such that $A_{i} \cong S_{x(i)}$ and $B_{j} = S_{y_{1}(j)} \wr S_{y_{2}(j)} \wr \dots \wr S_{y_{k_{j}}(j)}$.
 
-In addition to this algebraic interpretation of $\Aut(T_{n})$ there is a pleasing geometric realisation of equation \ref{decomp}.  In this geometric realisation each symmetric factor $S_k$ corresponds to a hub vertex adjacent to $k$ paths of length $n$, each of which terminates in a leaf. Each wreath product factor, $B_{i}$, corresponds to an extended symmetric induced subtree \cite{Ben}. We denote an induced subtree consisting of a hub vertex adjacent to $k$ paths of length $n$ a $(n,k)$-star.  For succinctness we will refer to $(1,k)$-stars simply as $k$-stars.
+In addition to this algebraic interpretation of $\Aut(T_{n})$ there is a pleasing geometric realisation of equation \ref{decomp}.  In this geometric realisation each symmetric factor $S_k$ corresponds to a hub vertex adjacent to $k$ paths of length $n$, each of which terminates in a leaf. Each wreath product factor, $B_{i}$, corresponds to an extended symmetric induced subtree \cite{Ben}. We denote an induced subtree consisting of a hub vertex adjacent to $k$ paths of length $n$ a $(n,k)$-star.  For succinctness we will refer to $(1,k)$-stars simply as $k$-stars.  These $(n,k)$-stars and extended symmetric branches are known as \emph{network motifs} and have been described as the building blocks of many real-world networks \cite{milo}.
 
 \begin{figure}[ht]
 \centering
@@ -1022,7 +1022,7 @@ Theorem \ref{thm:3.1}  is an example of the strong law for large numbers.  Loose
 
 In this section we will describe a generalized P\'{o}lya urn , $\mathcal{U}_m$ that describes the distribution of random recursive $d$-ary tree motifs.  Subsequently we will hit $\mathcal{U}_m$ with Theorem \ref{thm:3.21} to prove a limiting theorem for network motifs.
 
-Let $\{T_n\}_{n=1}^{\infty}$ be a random recursive $d$-ary tree process.  At time $n$ any vertex $v \in V(T_n)$ is incident to $l$ leaves where $0 \leq l \leq d$.  We call the induced subtree of $T_n$ with a hub node adjacent to $l$ leaves such that each leaf has higher label than the hub an $l$-star (an $l$-star is an example of a network motif).  By taking $l$ to be maximal partition $V(T_n)$ can be partitioned into $d+1$ sets of vertices contained in induced $l$-stars for $l=1,2,3, d$ and the set of vertices not contained in any $l$-star.
+Let $\{T_t\}_{t=1}^{n}$ be a random recursive $d$-ary tree process.  At time $t$ any vertex $v \in V(T_n)$ is incident to $l$ leaves where $0 \leq l \leq d$.  We call the induced subtree of $T_t$ with a hub node adjacent to $l$ leaves such that each leaf has higher label than the hub an $l$-star (an $l$-star is an example of a network motif).  By taking $l$ to be maximal partition $V(T_t)$ can be partitioned into $d+1$ sets of vertices contained in induced $l$-stars for $l=1,2,3, d$ and the set of vertices not contained in any $l$-star.
 
 Balls in $\mathcal{U}_m$  may take one of $d+1$ types that correspond to the aforementioned partition. In particular types $2,3,\dots d+1$ correspond to vertices in $(d-1)$-stars  and type 1 corresponds to the remaining vertices (for convenience we will refer to these vertices as 0-stars).  Since an $l$-star contains $l+1$ vertices we set activities $a_i = i$ for $i = 1,2,\dots d$ and $a_{d+1} = d$ for the reasons we give below.
 
@@ -1121,7 +1121,7 @@ Note that all the sub diagonal and superdiagonal entries of $T_d+1$ are positive
 
  \section{Complex automorphisms are non-trivial}\label{sec:caan}
  
- Let $\{T_n\}_{n=1}^{\infty}$ be a random recursive tree and $X_{n}$ be the number of trees with leaves  isomorphic to a $(2,2)$-star.
+ Let $\{T_t\}_{t=1}^{n}$ be a random recursive tree and $X_{n}$ be the number of trees with leaves  isomorphic to a $(2,2)$-star.
  %Aurt od a 2,2 star is 2!(2!)^2 = 8
  If we assume that almost surely $lim_{n \rightarrow \infty} \frac{X_n}{n} \rightarrow \epsilon_{2,2}$ for some $\epsilon_{2,2}> 0$.  This means that except for a set of measure 0 exceptions for all $\delta > 0$ there exists $N_\delta \in \mathbb{N}$ such that for all $n >N_\delta$ 
  \[ | \frac{X_n}{n}  - \epsilon| < \delta\]
@@ -1146,7 +1146,7 @@ Since we can choose our $\delta << \epsilon$ and there exists a Polya urn model 
  
  In this section we will prove that $\lim_{n \rightarrow \infty} Aut(T_n)$ converges.   
  
- Let $\{T_n\}_{n=1}^{\infty}$ be a random recursive tree and $X_{ni}$ be the number of vertices of degree $i$ in $T_n$.
+ Let $\{T_t\}_{t=1}^{n}$ be a random recursive tree and $X_{ni}$ be the number of vertices of degree $i$ in $T_n$.
  
 \begin{thm}
  In the limit as $n \rightarrow \infty$, almost surely $\frac{X_{n,i}}{n} \rightarrow 2^{-i}$. 
