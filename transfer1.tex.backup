@@ -966,7 +966,7 @@ Assume that vertex $v_{i} \in V(T_{n+1})$ is a leaf.  Then at time $i$ for some 
 
  
 \chapter{A P\'{o}lya Urn}\label{chap:polya}
-A generalised P\'{o}lya urn, $\mathcal{U}$, contains a finite number of balls of finitely many possible types $1,2,\dots,q$. The content of the urn at time $t$
+A generalised P\'{o}lya urn $\mathcal{U}$ contains a finite number of balls of finitely many possible types $1,2,\dots,q$. The content of the urn at time $t$
 is described by a vector $X_{t} = (X_{t,1},X_{t,2},\dots X_{t,q})$ where each $X_{t,i}$ is the number of balls of type $i$ in the urn at time $t$.  We associate an
 \emph{activity} $a_{i}$ and a transition vector $\xi_{i} = (\xi_{i,1},\xi_{i,2},\dots,\xi_{i,q})$ to each type.  A generalised P\'{o}lya urn is an evolving process with initial
 content $X_0$ and at subsequent times a ball is drawn from the urn. We also assume that $\mathbb{E} \lvert X_0 \rvert^2$.  At time $t$ a ball of type $i$ is drawn with probability

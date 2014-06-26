@@ -1,0 +1,28 @@
+\contentsline {chapter}{Abstract}{2}
+\contentsline {chapter}{\numberline {1}Introduction}{3}
+\contentsline {section}{\numberline {1.1}Attachment trees}{3}
+\contentsline {section}{\numberline {1.2}The automorphism group of labelled trees}{4}
+\contentsline {section}{\numberline {1.3}Automorphisms of random recursive trees}{5}
+\contentsline {chapter}{\numberline {2}A Measure on Random Recursive Trees}{8}
+\contentsline {section}{\numberline {2.1}Pr\"{ufer} sequences}{8}
+\contentsline {section}{\numberline {2.2}The space of random recursive trees}{9}
+\contentsline {chapter}{\numberline {3}Random Recursive Trees as Functions}{11}
+\contentsline {section}{\numberline {3.1}Expected automorphism group of a random recursive trees}{11}
+\contentsline {subsection}{\numberline {3.1.1}Pascal's triangle: an aside}{16}
+\contentsline {section}{\numberline {3.2}Expected automorphism group of a random recursive tree continued}{17}
+\contentsline {subsection}{\numberline {3.2.1}The expected number of $k$-stars}{18}
+\contentsline {chapter}{\numberline {4}Random Recursive Trees and Permutations}{19}
+\contentsline {section}{\numberline {4.1}Permutations}{19}
+\contentsline {section}{\numberline {4.2}Random permutations and Chinese restaurants}{19}
+\contentsline {section}{\numberline {4.3}Random permutation facts}{21}
+\contentsline {section}{\numberline {4.4}Applications to random recursive trees}{23}
+\contentsline {section}{\numberline {4.5}Theory of permutations}{23}
+\contentsline {section}{\numberline {4.6}Further applications}{24}
+\contentsline {chapter}{\numberline {5}A P\'{o}lya Urn}{25}
+\contentsline {section}{\numberline {5.1}Properties of P\'{o}lya urns}{25}
+\contentsline {section}{\numberline {5.2}A specific P\'{o}lya urn}{26}
+\contentsline {section}{\numberline {5.3}Further background}{27}
+\contentsline {subsection}{\numberline {5.3.1}The Gershgorin circle Theorem}{28}
+\contentsline {subsection}{\numberline {5.3.2}Non-negative matrices}{28}
+\contentsline {section}{\numberline {5.4}Complex automorphisms are non-trivial}{29}
+\contentsline {section}{\numberline {5.5}Convergence of the Automorphism group}{30}
